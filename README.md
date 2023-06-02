@@ -13,3 +13,10 @@ This is a CNN model that uses the spectrogram of different audio files from the 
 
 Here the data is passed in as a tf.Dataset object after performing MCSBP(Map-Cache-Shuffle-Batch-Prefetch)
 the fuction used in the mapping process decodes, pads and transforms the audio file.
+
+After the training is done, we go through the actual test data, which are three minute audio files in .mp3 format:
+1. load in the actual test data and decode them
+2. Slice the audio files and preprocess them as before
+3. Predict using the trained model
+4. count and store the number of calls in each audio(Sequence of audio slices of the previously padded size)
+5. save the result as a .csv file
